@@ -771,6 +771,8 @@ SDL_DYNAPI_PROC(bool,SDL_RenderCoordinatesFromWindow,(SDL_Renderer *a, float b, 
 SDL_DYNAPI_PROC(bool,SDL_RenderCoordinatesToWindow,(SDL_Renderer *a, float b, float c, float *d, float *e),(a,b,c,d,e),return)
 SDL_DYNAPI_PROC(bool,SDL_RenderFillRect,(SDL_Renderer *a, const SDL_FRect *b),(a,b),return)
 SDL_DYNAPI_PROC(bool,SDL_RenderFillRects,(SDL_Renderer *a, const SDL_FRect *b, int c),(a,b,c),return)
+SDL_DYNAPI_PROC(bool,SDL_RenderCircle,(SDL_Renderer *a, float b, float c, float d),(a,b,c,d),return)
+SDL_DYNAPI_PROC(bool,SDL_RenderFillCircle,(SDL_Renderer *a, float b, float c, float d),(a,b,c,d),return)
 SDL_DYNAPI_PROC(bool,SDL_RenderGeometry,(SDL_Renderer *a, SDL_Texture *b, const SDL_Vertex *c, int d, const int *e, int f),(a,b,c,d,e,f),return)
 SDL_DYNAPI_PROC(bool,SDL_RenderGeometryRaw,(SDL_Renderer *a, SDL_Texture *b, const float *c, int d, const SDL_FColor *e, int f, const float *g, int h, int i, const void *j, int k, int l),(a,b,c,d,e,f,g,h,i,j,k,l),return)
 SDL_DYNAPI_PROC(bool,SDL_RenderLine,(SDL_Renderer *a, float b, float c, float d, float e),(a,b,c,d,e),return)

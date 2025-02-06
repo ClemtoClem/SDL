@@ -760,6 +760,8 @@
 #define SDL_RenderCoordinatesToWindow SDL_RenderCoordinatesToWindow_REAL
 #define SDL_RenderFillRect SDL_RenderFillRect_REAL
 #define SDL_RenderFillRects SDL_RenderFillRects_REAL
+#define SDL_RenderCircle SDL_RenderCircle_REAL
+#define SDL_RenderFillCircle SDL_RenderFillCircle_REAL
 #define SDL_RenderGeometry SDL_RenderGeometry_REAL
 #define SDL_RenderGeometryRaw SDL_RenderGeometryRaw_REAL
 #define SDL_RenderLine SDL_RenderLine_REAL

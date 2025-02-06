@@ -3820,6 +3820,69 @@ bool SDL_RenderFillRects(SDL_Renderer *renderer, const SDL_FRect *rects, int cou
     return result;
 }
 
+bool SDL_RenderCircle(SDL_Renderer *renderer, float x, float y, float radius)
+{
+    CHECK_RENDERER_MAGIC(renderer, false);
+
+    if (radius < 0.0f) {
+        return SDL_InvalidParamError("SDL_RenderCircle(): radius");
+    }
+    if (radius < 1) {
+        return true;
+    }
+
+    float cx = x;
+    float cy = y;
+    float r = radius;
+    float dx = r;
+    float dy = 0;
+    float err = 1 - dx;
+
+    while (dx >= dy) {
+        SDL_RenderPoint(renderer, cx + dx, cy + dy);
+        SDL_RenderPoint(renderer, cx - dx, cy + dy);
+        SDL_RenderPoint(renderer, cx + dx, cy - dy);
+        SDL_RenderPoint(renderer, cx - dx, cy - dy);
+        SDL_RenderPoint(renderer, cx + dy, cy + dx);
+        SDL_RenderPoint(renderer, cx - dy, cy + dx);
+        SDL_RenderPoint(renderer, cx + dy, cy - dx);
+        SDL_RenderPoint(renderer, cx - dy, cy - dx);
+
+        dy++;
+        if (err < 0) {
+            err += 2 * dy + 1;
+        } else {
+            dx--;
+            err += 2 * (dy - dx) + 1;
+        }
+    }
+
+    return true;
+}
+
+bool SDL_RenderFillCircle(SDL_Renderer *renderer, float x, float y, float radius)
+{
+    CHECK_RENDERER_MAGIC(renderer, false);
+
+    if (radius < 0.0f) {
+        return SDL_InvalidParamError("SDL_RenderCircle(): radius");
+    }
+    if (radius < 1) {
+        return true;
+    }
+    
+    float cx = x;
+    float cy = y;
+    float r = radius;
+
+    for (float dy = -r; dy <= r; ++dy) {
+        float dx = SDL_sqrtf(r * r - dy * dy);
+        SDL_RenderLine(renderer, cx - dx, cy + dy, cx + dx, cy + dy);
+    }
+
+    return true;
+}
+
 static bool SDL_RenderTextureInternal(SDL_Renderer *renderer, SDL_Texture *texture, const SDL_FRect *srcrect, const SDL_FRect *dstrect)
 {
     const float scale_x = renderer->view->current_scale.x;

@@ -2039,6 +2039,34 @@ extern SDL_DECLSPEC bool SDLCALL SDL_RenderFillRect(SDL_Renderer *renderer, cons
 extern SDL_DECLSPEC bool SDLCALL SDL_RenderFillRects(SDL_Renderer *renderer, const SDL_FRect *rects, int count);
 
 /**
+ * Draw a circle on the current rendering target at subpixel precision.
+ * 
+ * \param renderer the renderer which should draw a circle.
+ * \param x the x coordinate of the center of the circle.
+ * \param y the y coordinate of the center of the circle.
+ * \param radius the radius of the circle.
+ * 
+ * \returns true on success or false on failure; call SDL_GetError() for more
+ *          information.
+ * \sa SDL_RenderCircle
+ */
+extern SDL_DECLSPEC bool SDLCALL SDL_RenderCircle(SDL_Renderer *renderer, float x, float y, float radius);
+
+/**
+ * Draw a filled circle on the current rendering target at subpixel precision.
+ * 
+ * \param renderer the renderer which should draw a filled circle.
+ * \param x the x coordinate of the center of the circle.
+ * \param y the y coordinate of the center of the circle.
+ * \param radius the radius of the circle.
+ * 
+ * \returns true on success or false on failure; call SDL_GetError() for more
+ *          information.
+ * \sa SDL_RenderFillCircle
+ */
+extern SDL_DECLSPEC bool SDLCALL SDL_RenderFillCircle(SDL_Renderer *renderer, float x, float y, float radius);
+
+/**
  * Copy a portion of the texture to the current rendering target at subpixel
  * precision.
  *
@@ -2302,6 +2330,8 @@ extern SDL_DECLSPEC SDL_Surface * SDLCALL SDL_RenderReadPixels(SDL_Renderer *ren
  *
  * \sa SDL_CreateRenderer
  * \sa SDL_RenderClear
+ * \sa SDL_RenderCircle
+ * \sa SDL_RenderFillCircle
  * \sa SDL_RenderFillRect
  * \sa SDL_RenderFillRects
  * \sa SDL_RenderLine

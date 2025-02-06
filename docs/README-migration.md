@@ -1447,6 +1447,10 @@ The following functions have been removed:
 * SDL_RenderTargetSupported() - render targets are always supported
 * SDL_SetTextureUserData() - use SDL_GetTextureProperties() instead
 
+The following functions have been added:
+* SDL_RenderCircle() - draws a circle
+* SDL_RenderFillCircle() - draws a filled circle
+
 The following enums have been renamed:
 * SDL_RendererFlip => SDL_FlipMode - moved to SDL_surface.h
 

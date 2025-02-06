@@ -735,6 +735,8 @@ SDL3_0.0.0 {
     SDL_RenderCoordinatesToWindow;
     SDL_RenderFillRect;
     SDL_RenderFillRects;
+    SDL_RenderCircle;
+    SDL_RenderFillCircle;
     SDL_RenderGeometry;
     SDL_RenderGeometryRaw;
     SDL_RenderLine;
